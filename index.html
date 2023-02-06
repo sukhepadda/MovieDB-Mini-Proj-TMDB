@@ -1,12 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+            <span class="navbar-brand text-white mb-0 h1">MovieDB-API</span>
+            <form id="searchForm" class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search Movie Here" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+            <button id="randomSearch" class="btn btn-outline-danger" type="submit">Search Random Movie</button>
+        </div>
+    </nav>
+
+    <!-- container -->
+    <div class="container text-center mt-4">
+        <h1>Title:<span class="badge bg-secondary">Movie Name Here</span></h1>
+        <div class="card mt-4 text-center style=" width: 18rem;">
+            <img src="https://image.tmdb.org/t/p/original//S6lLHuyh86V6SDRkSBsbuVTE6n.jpg" class="card-img-top"
+                alt="Movie Poster">
+            <div class="card-body">
+                <p class="card-text">Tag Line Comes Here</p>
+            </div>
+        </div>
+        <div class="mt-5">
+            <h2 class="h2">Plot Summary</h2>
+            <p class="lead mt-4">In 1938, an art collector appeals to eminent archaeologist Dr. Indiana Jones to embark
+                on a search for the Holy Grail. Indy learns that a medieval historian has vanished while searching for
+                it, and the missing man is his own father, Dr. Henry Jones Sr.. He sets out to rescue his father by
+                following clues in the old man's notebook, which his father had mailed to him before he went missing.
+                Indy arrives in Venice, where he enlists the help of a beautiful academic, Dr. Elsa Schneider, along
+                with Marcus Brody and Sallah. Together they must stop the Nazis from recovering the power of eternal
+                life and taking over the world!</p>
+        </div>
+    </div>
+    <!-- container -->
+    <div class="container text-center cont-2">
+        <div class="row">
+            <div class="col">col</div>
+            <div class="col">col</div>
+            <div class="col">col</div>
+            <div class="col">col</div>
+        </div>
+
+    </div>
+    <footer class="navbar mt-5">
+        <div class="container-fluid">
+           <h5 class="h5">Follow me on <a href="http://www.github/sukhepadda/">Github</a></h5>           
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script src="APIs.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

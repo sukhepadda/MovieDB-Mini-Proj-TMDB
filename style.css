@@ -1,0 +1,21 @@
+body{
+    background: rgb(220,144,192);
+background: linear-gradient(71deg, rgba(220,144,192,1) 27%, rgba(157,154,235,1) 100%);
+    height: 1200px;
+}
+nav{
+    background: rgb(116, 81, 103);
+background: linear-gradient(71deg, rgb(124, 79, 108) 27%, rgb(42, 42, 110) 100%);
+}
+input{
+    background-color: rgb(209, 191, 191) !important;
+    border: none !important;
+}
+.card{
+    background-color: grey;
+    color: white;
+}
+.cont-2{
+    border: black 1px solid;
+    padding: 20px;
+}
