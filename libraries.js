@@ -1,4 +1,3 @@
-let imageURLBase = `https://www.themoviedb.org/t/p/original/`;
 //load the swiping effect slider image library
 
 Cocoen.parse(document.body);

@@ -1,88 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Movie DataBase</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
+  <body>
     <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid nav-div">
-            <span class="navbar-brand text-white mb-0 h1">MovieDB-API</span>
-            <form id="searchForm" class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search Movie Here" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-            <button id="randomSearch" class="btn btn-outline-danger" type="submit">Search Random Movie</button>
-        </div>
+      <div class="container-fluid nav-div">
+        <span class="navbar-brand text-white mb-0 h1">MovieDB-API</span>
+        <form onsubmit="searchFormFunction(); return false" id="movieInputForm;" class="d-flex" role="search">
+          <input
+            id="movieInput"
+            class="form-control me-2"
+            type="search"
+            placeholder="Search Movie Here"
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+        <button onclick="randomFunction();" id="randomSearch" class="btn btn-outline-danger" type="submit">
+          Search Random Movie
+        </button>
+      </div>
     </nav>
 
     <!-- container -->
     <div class="container text-center mt-4">
-        <h1>Title:<span class="badge bg-secondary">Movie Name Here</span></h1>
-        <div class="card mt-4 text-center style=" width: 18rem;">
-            <img src="https://image.tmdb.org/t/p/original//S6lLHuyh86V6SDRkSBsbuVTE6n.jpg" class="card-img-top"
-                alt="Movie Poster">
-            <div class="card-body">
-                <p class="card-text">Tag Line Comes Here</p>
-            </div>
+      <h1>
+        Title:<span id="movieTitle" class="badge bg-secondary"
+          >Movie Name Here</span
+        >
+      </h1>
+      <div class="card mt-4 text-center" style="width: 50rem">
+        <img
+          height="300px"
+          width="800px"
+          id="moviePoster"
+          src="https://image.tmdb.org/t/p/original//S6lLHuyh86V6SDRkSBsbuVTE6n.jpg"
+          class="img-fluid"
+          alt="Movie Poster"
+        />
+        <div class="card-body">
+          <p id="movieTagLine" class="card-text">Tag Line Comes Here</p>
         </div>
-        <div class="mt-5">
-            <h2 class="h2">Plot Summary</h2>
-            <p class="lead mt-4">In 1938, an art collector appeals to eminent archaeologist Dr. Indiana Jones to embark
-                on a search for the Holy Grail. Indy learns that a medieval historian has vanished while searching for
-                it, and the missing man is his own father, Dr. Henry Jones Sr.. He sets out to rescue his father by
-                following clues in the old man's notebook, which his father had mailed to him before he went missing.
-                Indy arrives in Venice, where he enlists the help of a beautiful academic, Dr. Elsa Schneider, along
-                with Marcus Brody and Sallah. Together they must stop the Nazis from recovering the power of eternal
-                life and taking over the world!</p>
-        </div>
+      </div>
+
+      <div class="mt-5">
+        <h2 class="h2">Plot Summary</h2>
+        <p id="movieOverview" class="lead mt-4">
+          In 1938, an art collector appeals to eminent archaeologist Dr. Indiana
+          Jones to embark on a search for the Holy Grail. Indy learns that a
+          medieval historian has vanished while searching for it, and the
+          missing man is his own father, Dr. Henry Jones Sr.. He sets out to
+          rescue his father by following clues in the old man's notebook, which
+          his father had mailed to him before he went missing. Indy arrives in
+          Venice, where he enlists the help of a beautiful academic, Dr. Elsa
+          Schneider, along with Marcus Brody and Sallah. Together they must stop
+          the Nazis from recovering the power of eternal life and taking over
+          the world!
+        </p>
+      </div>
     </div>
     <!-- container -->
     <div class="container text-center cont-2">
-        <div class="row">
-            <div class="col">col</div>
-            <div class="col">col</div>
-            <div class="col">col</div>
-            <div class="col">col</div>
+      <div class="row">
+        <div class="col">
+          <p>Release Date:</p>
+          <p id="movieReleaseData"></p>
         </div>
-
-
+        <div id="MovieImdb" class="col">
+          <p>IMDB ID:</p>
+          <p id="movieImdb"></p>
+        </div>
+        <div class="col">
+          <p>Popularity:</p>
+          <p id="moviePopularity"></p>
+        </div>
+        <div class="col">
+          <p>Voting Average:</p>
+          <p id="movieVotingAvg"></p>
+        </div>
+      </div>
     </div>
     <!-- generes and other details -->
-    <div class="container mt-5 text-center ">
-        <div class="row">
-            <div class="col-md-6">
-                <p>Genre</p>
-                <ul class="list-group" id="sample_genrelist">
-                </ul>
-            </div>
-            <div class="col-md-6">
-                <p>Production Companies</p>
-                <ul class="list-group" id="sample_productioncompanies">
-                </ul>
-            </div>
+    <div class="container mt-5 text-center">
+      <div class="row">
+        <div class="col-md-6">
+          <p>Genre</p>
+          <ul class="list-group" id="genrelist"></ul>
         </div>
+        <div class="col-md-6">
+          <p>Production Companies</p>
+          <ul class="list-group" id="productioncompanies"></ul>
+        </div>
+      </div>
     </div>
     <!-- cocoeen slider -->
 
     <div class="container text-center mt-5">
-
-        <h2 class="h2">Popular Images</h2>
-        <div class="cocoen mt-2">
-            <img id="cocoensliderone" src="https://wallsdesk.com/wp-content/uploads/2016/09/Ameesha-Patel-Desktop.jpg"
-                alt="" />
-            <img id="cocoenslidertwo" src="https://wallsdesk.com/wp-content/uploads/2016/09/Ameesha-Patel-Photos.jpg"
-                alt="" />
-        </div>
+      <h2 class="h2">Popular Images</h2>
+      <div class="cocoen mt-2">
+        <img
+          id="cocoensliderone"
+          src="https://wallsdesk.com/wp-content/uploads/2016/09/Ameesha-Patel-Desktop.jpg"
+          alt=""
+        />
+        <img
+          id="cocoenslidertwo"
+          src="https://wallsdesk.com/wp-content/uploads/2016/09/Ameesha-Patel-Photos.jpg"
+          alt=""
+        />
+      </div>
     </div>
-<!-- galary1 -->
+    <!-- galary1 -->
     <!-- <div class="container mt-5 text-center imgGallary">
         <h2 class="h2">Explore More Images</h2>
         <div id="carouselExample" class="carousel slide">
@@ -107,51 +147,49 @@
             </button>
           </div>
     </div> -->
-<!-- galary -->
-<div class="swiper">
-    <!-- Additional required wrapper -->
-    <div class="swiper-wrapper" id="swiperwrappermain">
+    <!-- galary -->
+    <div class="swiper">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper" id="swiperwrappermain"></div>
+      <!-- If we need pagination -->
+      <!--   <div class="swiper-pagination"></div> -->
 
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+
+      <!-- If we need scrollbar -->
+      <!--   <div class="swiper-scrollbar"></div> -->
     </div>
-    <!-- If we need pagination -->
-    <!--   <div class="swiper-pagination"></div> -->
-
-    <!-- If we need navigation buttons -->
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-
-    <!-- If we need scrollbar -->
-    <!--   <div class="swiper-scrollbar"></div> -->
-  </div>
-
-
-
-
-
 
     <div class="container mt-5 text-center">
-        <h2 class="h2">Explore More Details about this Movie in Movie's <a href="">Website</a> </h2>
+      <h2 class="h2">
+        Explore More Details about this Movie in Movie's
+        <a id="movieHomepage" href="">Website</a>
+      </h2>
     </div>
 
-    <footer class=" container text-center mt-5">
-        <div class="container-fluid">
-            <h5 class="h5">Follow me on <a href="http://www.github/sukhepadda/">Github</a></h5>
-        </div>
+    <footer class="container text-center mt-5">
+      <div class="container-fluid">
+        <h5 class="h5">
+          Follow me on <a href="http://www.github/sukhepadda/">Github</a>
+        </h5>
+      </div>
     </footer>
-<hr>
+    <hr />
 
     <script src="https://unpkg.com/cocoen/dist/cocoen.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
 
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
-
-    <script src="script.js"></script>
     <script src="apiKey.js"></script>
-    <script src="baseUrl-libraries.js"></script>
-</body>
-
+    <script src="moviesList.js"></script>
+    <script src="script.js"></script>
+    <script src="libraries.js"></script>
+  </body>
 </html>
