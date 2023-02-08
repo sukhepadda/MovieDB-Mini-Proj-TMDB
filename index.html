@@ -18,17 +18,28 @@
     <nav class="navbar bg-body-tertiary">
       <div class="container-fluid nav-div">
         <span class="navbar-brand text-white mb-0 h1">MovieDB-API</span>
-        <form onsubmit="searchFormFunction(); return false" id="movieInputForm;" class="d-flex" role="search">
+        <form
+          onsubmit="searchFormFunction(); return false"
+          id="movieInputForm;"
+          class="d-flex"
+          role="search"
+        >
           <input
             id="movieInput"
             class="form-control me-2"
             type="search"
             placeholder="Search Movie Here"
             aria-label="Search"
+            required
           />
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
-        <button onclick="randomFunction();" id="randomSearch" class="btn btn-outline-danger" type="submit">
+        <button
+          onclick="randomFunction();"
+          id="randomSearch"
+          class="btn btn-outline-danger"
+          type="submit"
+        >
           Search Random Movie
         </button>
       </div>
@@ -46,7 +57,7 @@
           height="300px"
           width="800px"
           id="moviePoster"
-          src="https://image.tmdb.org/t/p/original//S6lLHuyh86V6SDRkSBsbuVTE6n.jpg"
+          src="https://render.fineartamerica.com/images/rendered/search/poster/7/8/break/images/artworkimages/medium/2/confused-question-mark-csa-images.jpg"
           class="img-fluid"
           alt="Movie Poster"
         />
@@ -109,66 +120,48 @@
 
     <div class="container text-center mt-5">
       <h2 class="h2">Popular Images</h2>
-      <div class="cocoen mt-2">
-        <img
-          id="cocoensliderone"
-          src="https://wallsdesk.com/wp-content/uploads/2016/09/Ameesha-Patel-Desktop.jpg"
-          alt=""
-        />
-        <img
-          id="cocoenslidertwo"
-          src="https://wallsdesk.com/wp-content/uploads/2016/09/Ameesha-Patel-Photos.jpg"
-          alt=""
-        />
+      <div class="cocoen mt-2" id="cocoeenContainer" hidden>
+        <img id="sliderimage1" src="" alt="" />
+        <img id="sliderimage2" src="" alt="" />
       </div>
     </div>
-    <!-- galary1 -->
-    <!-- <div class="container mt-5 text-center imgGallary">
-        <h2 class="h2">Explore More Images</h2>
-        <div id="carouselExample" class="carousel slide">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="https://image.tmdb.org/t/p/original//31Ogsco7EMpjSMSehy7doMB35O7.jpg" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="https://image.tmdb.org/t/p/original//4YP23Bq9m0q3BPDtdSSiqn4R8FM.jpg" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="https://image.tmdb.org/t/p/original//AjdsT3TdXc6f6lWbC9ZQZ4R4Sbg.jpg" class="d-block w-100" alt="...">
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
-    </div> -->
+
     <!-- galary -->
-    <div class="swiper">
-      <!-- Additional required wrapper -->
-      <div class="swiper-wrapper" id="swiperwrappermain"></div>
-      <!-- If we need pagination -->
-      <!--   <div class="swiper-pagination"></div> -->
+    <div class="container mt-5 text-center">
 
-      <!-- If we need navigation buttons -->
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-
-      <!-- If we need scrollbar -->
-      <!--   <div class="swiper-scrollbar"></div> -->
+      <h2 class="h2 mt-5">More Images</h2>
+      <div id="carouselExampleFade" class="carousel slide carousel-fade mt-3">
+        <div class="carousel-inner" id="swiperwrappermain"></div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleFade"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleFade"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
     </div>
 
-    <div class="container mt-5 text-center">
+    <!-- movie webpage -->
+    <div class="container mt-5 text-center" id="movieHomepageLink">
       <h2 class="h2">
         Explore More Details about this Movie in Movie's
         <a id="movieHomepage" href="">Website</a>
       </h2>
     </div>
 
+    <!-- footer -->
     <footer class="container text-center mt-5">
       <div class="container-fluid">
         <h5 class="h5">
@@ -179,8 +172,6 @@
     <hr />
 
     <script src="https://unpkg.com/cocoen/dist/cocoen.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
