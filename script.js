@@ -134,6 +134,10 @@ function searchForMovie(movieName = "pathaan") {
 
   let fullURI = baseURL + endpoint + "?api_key=" + movieAPIkey + extrathings;
 
+  //loading animation
+  document.getElementById("moviePoster").src = "https://i.pinimg.com/originals/71/3a/32/713a3272124cc57ba9e9fb7f59e9ab3b.gif";
+
+
   fetch(fullURI)
     .then((res) => res.json())
     .then((data) => {
@@ -194,6 +198,7 @@ function movieImages(mId) {
       console.log(error);
     });
 }
+// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function randomFunction() {
   // Returns a random integer from 0 to 9:

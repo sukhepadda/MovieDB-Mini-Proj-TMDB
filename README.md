@@ -2,6 +2,4 @@
 This is mini proj for the practice of API The Movie Database API
 
 
-
-
-//loading, gallary remains;
+here is the codepen link: https://codepen.io/sukhepadda/full/ExpzobY
