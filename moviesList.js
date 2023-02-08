@@ -1,41 +1,41 @@
 let listOfRandomMovieStuff = [
-    "The Shawshank Redemption",
+  "The Shawshank Redemption",
 
-    "The Godfather",
+  "The Godfather",
 
-    "The Godfather: Part II",
+  "The Godfather: Part II",
 
-    "The Dark Knight",
+  "The Dark Knight",
 
-    "12 Angry Men",
+  "12 Angry Men",
 
-    'Schindler"s List',
+  'Schindler"s List',
 
-    "Pulp Fiction",
+  "Pulp Fiction",
 
-    "The Lord of the Rings: The Return of the King",
+  "The Lord of the Rings: The Return of the King",
 
-    "Il buono, il brutto, il cattivo",
+  "Il buono, il brutto, il cattivo",
 
-    "Fight Club",
+  "Fight Club",
 
-    "The Lord of the Rings: The Fellowship of the Ring",
+  "The Lord of the Rings: The Fellowship of the Ring",
 
-    "Forrest Gump",
+  "Forrest Gump",
 
-    "Star Wars: Episode V - The Empire Strikes Back",
+  "Star Wars: Episode V - The Empire Strikes Back",
 
-    "Inception",
+  "Inception",
 
-    "The Lord of the Rings: The Two Towers",
+  "The Lord of the Rings: The Two Towers",
 
-    'One Flew Over the Cuckoo"s Nest',
+  'One Flew Over the Cuckoo"s Nest',
 
-    "Goodfellas",
+  "Goodfellas",
 
-    "The Matrix",
+  "The Matrix",
 
-    "Shichinin no samurai",
+  "Shichinin no samurai",
 
-    "Star Wars",
-  ];
+  "Star Wars",
+];
